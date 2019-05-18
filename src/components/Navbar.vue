@@ -70,7 +70,7 @@
         left: 0;
         background-color: #FFC0CB;
         padding-top: 50%;
-
+        z-index: 2;
         a {
             display: block;
 
@@ -83,5 +83,9 @@
     a {
         text-decoration: none;
         color: white;
+    }
+
+    .fa-hamburger {
+        color: #FFC0CB;
     }
 </style>
