@@ -1,8 +1,8 @@
 <template>
     <div class="box">
         <p class="is-size-4">{{title}}</p>
-        <progress class="progress" :class="progressColor" :value="min" :max="max"></progress>
-        <p class="is-size-5 is-right"><strong class="is-bold">{{min}}</strong>/{{max}}
+        <progress class="progress" :class="progressColor" :value="curr" :max="target"></progress>
+        <p class="is-size-5 is-right"><strong class="is-bold">{{curr}}</strong>/{{target}}
             {{unit}}</p>
     </div>
 </template>
@@ -14,8 +14,8 @@
         @Prop() title!: string
         @Prop() unit!: string
         @Prop() progressColor!: string
-        @Prop() min!: number
-        @Prop() max!: number
+        @Prop() curr!: number
+        @Prop() target!: number
 
         created() {
 

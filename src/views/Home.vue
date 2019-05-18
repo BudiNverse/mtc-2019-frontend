@@ -3,14 +3,17 @@
         <br>
         <NextMealCard></NextMealCard>
         <br>
-        <Macronutrients v-for="m in macronutrients"
+        <Macronutrients v-for="m in mn"
                         :key="m.title"
                         :title="m.title"
                         :unit="m.unit"
-                        :min="m.min"
-                        :max="m.max"
+                        :curr="m.curr"
+                        :target="m.target"
                         :progressColor="m.progressColor">
         </Macronutrients>
+        <div class="has-text-centered">
+            <i class="fas fa-plus is-size-2"></i>
+        </div>
     </div>
 </template>
 
@@ -19,7 +22,7 @@
     import HelloWorld from '@/components/HelloWorld.vue'
     import NextMealCard from "@/components/NextMealCard.vue"
     import Macronutrients from "@/components/Macronutrients.vue"
-    import {MNData} from "@/models/User.ts"
+    import {USERS} from "@/database/Database"
 
     @Component({
         components: {
@@ -29,15 +32,8 @@
         },
     })
     export default class Home extends Vue {
-
-        macronutrients: MNData[] = [
-            new MNData("Calorie Intake", "kcal", "is-success", 2000, 200),
-            new MNData("Fats Intake", "g", "is-warning", 100, 300),
-            new MNData("Carbohydrate Intake", "kcal", "is-danger", 200, 500),
-            new MNData("Protein Intake", "kcal", "is-default", 200, 500),
-            new MNData("Iron Intake", "kcal", "is-danger", 200, 500),
-            new MNData("Vitamin A Intake", "kcal", "is-primary", 200, 500),
-            new MNData("Vitamin B Intake", "kcal", "is-info", 200, 500),
-        ]
+        get mn() {
+            return USERS[0].dietProfile.macros
+        }
     }
 </script>
