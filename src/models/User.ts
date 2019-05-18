@@ -83,6 +83,7 @@ export class MNData {
         this.curr = curr
         this.target = target
     }
+
 }
 
 export class FoodProfile {

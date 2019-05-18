@@ -11,8 +11,8 @@
                         :target="m.target"
                         :progressColor="m.progressColor">
         </Macronutrients>
-        <div class="has-text-centered">
-            <i class="fas fa-plus is-size-2"></i>
+        <div class="has-text-right">
+            <router-link to="/manageItems">Manage items</router-link>
         </div>
     </div>
 </template>
