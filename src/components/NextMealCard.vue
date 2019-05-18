@@ -1,7 +1,8 @@
 <template>
     <div>
-        <div class="tinted-img"></div>
-        <div class="next-meal-card box">
+        <br>
+        <div class="tinted-img" ></div>
+        <div class="next-meal-card box" @click="$router.push('/next')">
             <p class="is-size-2">Next meal</p>
             <p class="is-size-4">Salad</p>
             <div class="buttons is-fullwidth">
@@ -12,14 +13,13 @@
                 <a class="button is-medium is-fullwidth is-danger">Skip</a>
             </div>
         </div>
-    </div>
+    </div>    
 </template>
 <script lang="ts">
     import {Component, Vue} from 'vue-property-decorator'
 
     @Component({})
     export default class NextMealCard extends Vue {
-
     }
 </script>
 
