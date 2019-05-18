@@ -67,7 +67,6 @@ export class MNData {
 
     static defaults(calories: number = 2000): MNData[] {
         const all = this.all(calories)
-
         return [
             all[0],
             all[1],
@@ -84,6 +83,9 @@ export class MNData {
         this.target = target
     }
 
+    eat(mnData: MNData) {
+        this.curr += mnData.curr
+    }
 }
 
 export class FoodProfile {

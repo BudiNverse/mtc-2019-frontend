@@ -7,7 +7,7 @@
 <script lang="ts">
     import {Component, Prop, Vue} from 'vue-property-decorator'
     import {USERS} from '@/database/Database'
-    import {MNData} from '@/models/User' // @ is an alias to /src
+    import {MNData} from '@/models/User'
 
     @Component({})
     export default class ManageItemCard extends Vue {
