@@ -1,7 +1,14 @@
 <template>
     <div>
         <div class="is-hidden-desktop">
-            <i class="fas fa-hamburger is-size-3" @click="toggleMenuOpen"></i>
+            <div class="columns">
+                <div class="column">
+                    <i class="fas fa-hamburger is-size-3" @click="toggleMenuOpen"></i>
+                </div>
+                <!--                <div class="column">-->
+                <!--                    <img alt="logo" class="image is-3by1" src="../assets/logo.png">-->
+                <!--                </div>-->
+            </div>
             <div :class="menuShowing" class="mobile-menu">
                 <a v-for="l in links" class="is-size-2" @click="navigate(l.to)">
                     <i class="fas" :class="l.iconClass"></i>
@@ -14,7 +21,6 @@
         </div>
     </div>
 </template>
-
 <script lang="ts">
     import {Component, Vue} from 'vue-property-decorator'
 
@@ -88,4 +94,9 @@
     .fa-hamburger {
         color: #FFC0CB;
     }
+
+    .logo {
+        max-height: 50%;
+    }
+
 </style>

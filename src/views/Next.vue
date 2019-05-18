@@ -1,10 +1,9 @@
 <template>
 <div>
-    <FoodCard></FoodCard>
-    <br>
-    <FoodCard></FoodCard>
-    <br>
-    <FoodCard></FoodCard>
+    <div v-for="profile in food" v-bind:key="profile.title">
+        <FoodCard :profile="profile" ></FoodCard>
+        <br>
+    </div>
 </div>
 </template>
 <script lang="ts">
@@ -14,7 +13,7 @@
         components: {FoodCard},
     })
     export default class Next extends Vue {
-
+        food = this.$store.getters.getFood
     }
 </script>
 
