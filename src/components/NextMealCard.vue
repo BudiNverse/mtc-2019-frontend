@@ -10,8 +10,6 @@
                     &nbsp;Eaten
                 </a>
                 <a class="button is-medium is-fullwidth is-danger">Skip</a>
-                <a class="button is-medium is-fullwidth is-warning">
-                    <i class="fas fa-redo"></i> &nbsp; Regenrate</a>
             </div>
         </div>
     </div>
