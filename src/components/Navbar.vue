@@ -3,11 +3,11 @@
         <div class="is-hidden-desktop">
             <i class="fas fa-hamburger is-size-3" @click="toggleMenuOpen"></i>
             <div :class="menuShowing" class="mobile-menu">
-                <a v-for="l in links" class="is-size-3" @click="navigate(l.to)">
+                <a v-for="l in links" class="is-size-2" @click="navigate(l.to)">
                     <i class="fas" :class="l.iconClass"></i>
                     {{l.str}}
                 </a>
-                <a class="is-size-3">
+                <a class="is-size-2">
                     <i class="fas fa-times" @click="toggleMenuOpen"></i>
                 </a>
             </div>
@@ -38,8 +38,8 @@
         created() {
             this.links.push(
                 new Link("Home", "/", "fa-home"),
-                new Link("Login", "/login", "fa-sign-in-alt"),
-                new Link("Dashboard", "/dashboard", "fa-tachometer-alt")
+                new Link("Profile", "/profile", "fa-tachometer-alt"),
+                new Link("Logout", "/login", "fa-sign-out-alt")
             )
         }
 
@@ -73,6 +73,10 @@
 
         a {
             display: block;
+
+            .fa-times {
+                padding-top: 50%;
+            }
         }
     }
 
