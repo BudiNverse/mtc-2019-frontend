@@ -19,22 +19,7 @@
     import HelloWorld from '@/components/HelloWorld.vue'
     import NextMealCard from "@/components/NextMealCard.vue"
     import Macronutrients from "@/components/Macronutrients.vue"
-
-    export class MNData {
-        title: string
-        unit: string
-        progressColor: string
-        min: number
-        max: number
-
-        constructor(title: string, unit: string, progressColor: string, max: number, min: number = 0) {
-            this.title = title
-            this.unit = unit
-            this.progressColor = progressColor
-            this.min = min
-            this.max = max
-        }
-    }
+    import {MNData} from "@/models/User.ts"
 
     @Component({
         components: {

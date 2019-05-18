@@ -35,25 +35,31 @@ export class Meal {
     }
 }
 
-export class FoodProfile {
-    calorie: number
-    name: string
-    protein: number
-    carbs: number
-    fats: number
-    iron: number
-    vitA: number
-    vitD: number
+export class MNData {
+    title: string
+    unit: string
+    progressColor: string
+    min: number
+    max: number
 
-    constructor(calorie: number, name: string, protein: number, carbs: number, fats: number, iron: number, vitA: number, vitD: number) {
-        this.calorie = calorie
+    constructor(title: string, unit: string, progressColor: string, max: number, min: number = 0) {
+        this.title = title
+        this.unit = unit
+        this.progressColor = progressColor
+        this.min = min
+        this.max = max
+    }
+}
+
+export class FoodProfile {
+    name: string
+    image: string
+    macros: MNData[]
+
+    constructor(name:string, macros:MNData[], image:string) {
         this.name = name
-        this.protein = protein
-        this.carbs = carbs
-        this.fats = fats
-        this.iron = iron
-        this.vitA = vitA
-        this.vitD = vitD
+        this.macros = macros
+        this.image = image
     }
 }
 

@@ -23,6 +23,11 @@ export default new Router({
             path: '/profile',
             name: 'Profile',
             component: () => import('./views/Profile.vue')
+        },
+        {
+            path: '/next',
+            name: 'Next Meal',
+            component: () => import('./views/Next.vue')
         }
     ]
 })
