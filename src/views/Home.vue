@@ -1,6 +1,5 @@
 <template>
     <div class="home">
-        <br>
         <NextMealCard></NextMealCard>
         <br>
         <Macronutrients v-for="m in mn"
@@ -22,7 +21,6 @@
     import HelloWorld from '@/components/HelloWorld.vue'
     import NextMealCard from "@/components/NextMealCard.vue"
     import Macronutrients from "@/components/Macronutrients.vue"
-    import {USERS} from "@/database/Database"
 
     @Component({
         components: {
@@ -33,7 +31,12 @@
     })
     export default class Home extends Vue {
         get mn() {
-            return USERS[0].dietProfile.macros
+            return this.USERS[0].dietProfile.macros
+        }
+
+
+        get USERS() {
+            return this.$store.state.user
         }
     }
 </script>

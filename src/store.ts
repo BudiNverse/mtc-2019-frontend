@@ -6,7 +6,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        user: null,
+        user: [
+            new User(
+                55,
+                170,
+                70,
+                1,
+                "John Blyat",
+                new FoodProfile(
+                    "Obese",
+                    MNData.defaults(1904),
+                    ""
+                ),
+                1904,
+                [],
+                3
+            )
+        ],
         food: [
             new FoodProfile("Chicken Rice", [new MNData("Calorie Intake", "kcal", "is-success", 2000, 1905),
                 new MNData("Fats Intake", "g", "", 0, 300),
@@ -102,12 +118,7 @@ export default new Vuex.Store({
 
         ]
     },
-    mutations: {
-        setUser(state, user: User) {
-            // @ts-ignore
-            state.user = user
-        }
-    },
+    mutations: {},
     actions: {},
     getters: {
         getFood: state => {
