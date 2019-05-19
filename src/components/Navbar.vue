@@ -3,7 +3,10 @@
         <div class="is-hidden-desktop">
             <div class="columns">
                 <div class="column">
-                    <i class="fas fa-hamburger is-size-3" @click="toggleMenuOpen"></i>
+                    <p class="bolder is-size-3">
+                        <i class="fas fa-hamburger is-size-3" @click="toggleMenuOpen"></i>
+                        &nbsp; Hello {{username}}
+                    </p>
                 </div>
             </div>
             <transition name="custom-classes-transition"
@@ -58,6 +61,10 @@
             this.toggleMenuOpen()
             this.$router.push(navLink)
         }
+
+        get username() {
+            return this.$store.state.user[0].username
+        }
     }
 </script>
 
@@ -97,4 +104,7 @@
         max-height: 50%;
     }
 
+    .bolder {
+        font-weight: bolder;
+    }
 </style>

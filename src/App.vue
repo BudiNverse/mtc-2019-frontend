@@ -51,4 +51,8 @@
             }
         }
     }
+
+    .fa-arrow-left {
+        color: #FFC0CB;
+    }
 </style>

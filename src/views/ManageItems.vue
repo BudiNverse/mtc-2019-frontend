@@ -1,11 +1,17 @@
 <template>
     <div>
+        <div class="columns">
+            <div class="column">
+                <p class="bolder is-size-3">
+                    <i class="fas fa-arrow-left is-size-3" @click="goHome()"></i>
+                    &nbsp; Manage
+                </p>
+            </div>
+        </div>
         <ManageItemCard v-for="ic in allItemsTagged"
                         :name="ic.data.title"
                         :isEnabled="ic.disabled"
-                        :mnData="ic.data"
-        >
-
+                        :mnData="ic.data">
         </ManageItemCard>
     </div>
 </template>
@@ -30,6 +36,10 @@
     })
     export default class ManageItems extends Vue {
 
+        goHome() {
+            this.$router.push("/")
+        }
+
         get USERS() {
             return this.$store.state.user
         }
@@ -50,5 +60,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+    .bolder {
+        font-weight: bolder;
+    }
 </style>

@@ -12,7 +12,7 @@ export default new Vuex.Store({
                 170,
                 70,
                 1,
-                "John Blyat",
+                "Ah Hok",
                 new FoodProfile(
                     "Obese",
                     MNData.defaults(1904),

@@ -1,7 +1,12 @@
 <template>
     <div class="profile">
-        <div class="header title">
-            General Settings
+        <div class="columns">
+            <div class="column">
+                <p class="is-size-3 bolder">
+                    <i class="fas fa-arrow-left is-size-3" @click="goHome()"></i>
+                    &nbsp;General Settings
+                </p>
+            </div>
         </div>
         <div class="generalSettings">
             <div class="field is-horizontal">
@@ -124,12 +129,18 @@
 
     @Component({})
     export default class Profile extends Vue {
-
+        goHome() {
+            this.$router.push("/")
+        }
     }
 </script>
 
 <style lang="scss" scoped>
     .profile {
         padding-top: 0.5em;
+    }
+
+    .bolder {
+        font-weight: bolder;
     }
 </style>
