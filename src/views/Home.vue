@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <navbar class="animated fadeInDown"></navbar>
+        <navbar></navbar>
         <NextMealCard class="animated fadeInDown"></NextMealCard>
         <br>
         <Macronutrients v-for="m in mn"
