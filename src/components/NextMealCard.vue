@@ -4,13 +4,13 @@
         <div class="next-meal-card box"
              @click="$router.push('/next')">
             <p class="is-size-2">Next meal</p>
-            <p class="is-size-4">{{nextFood[0].name}}</p>
+            <p class="is-size-4">{{nextFood[currFoodIdx].name}}</p>
             <div class="buttons is-fullwidth">
                 <a class="button is-medium is-fullwidth is-success" @click.stop="eat()">
                     <i class="fas fa-utensils"></i>
                     &nbsp;Eaten
                 </a>
-                <a class="button is-medium is-fullwidth is-danger">Skip</a>
+                <a class="button is-medium is-fullwidth is-danger" @click.stop="skip">Skip</a>
             </div>
         </div>
     </div>    
@@ -21,6 +21,8 @@
 
     @Component({})
     export default class NextMealCard extends Vue {
+
+        currFoodIdx = 0
 
         get nextFood(): FoodProfile[] {
             return this.$store.state.food.filter((f: FoodProfile) => {
@@ -51,6 +53,10 @@
                     }
                 })
             })
+        }
+
+        skip() {
+            this.currFoodIdx += 1
         }
     }
 </script>
