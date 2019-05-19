@@ -2,7 +2,7 @@ export class User {
     age: number
     height: number
     weight: number
-    sex: number
+    sex: boolean
     username: string
     dietProfile: DietProfile
     calorieAllowance: number
@@ -12,7 +12,7 @@ export class User {
     constructor(age: number,
                 height: number,
                 weight: number,
-                sex: number,
+                sex: boolean,
                 username: string,
                 dietProfile: DietProfile,
                 calorieAllowance: number,
@@ -29,9 +29,17 @@ export class User {
         this.mealsPerDay = mealsPerDay
     }
 
-    get sexStr() {
-        return this.sex === 1 ? "male" : "female"
-    }
+    // get sexStr() {
+    //     return this.sex === 1 ? "male" : "female"
+    // }
+
+    // get isMale() {
+    //     return this.sex === 1 ? true : false
+    // }
+
+    // get isFemale() {
+    //     return this.sex === 1 ? false : true
+    // }
 }
 
 

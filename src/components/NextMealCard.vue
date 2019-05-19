@@ -28,7 +28,7 @@
             return this.$store.state.food.filter((f: FoodProfile) => {
                 let test: boolean = true
                 f.macros.forEach((mData: MNData) => {
-                    this.USERS[0].dietProfile.macros.forEach((mData2) => {
+                    this.USERS[0].dietProfile.macros.forEach((mData2: MNData) => {
                         if (mData2.title === mData.title) {
                             const left = mData2.target - mData2.curr
                             if (left < mData.curr) {

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {FoodProfile, MNData, User} from "@/models/User"
+import {FoodProfile, MNData, User, DietProfile} from "@/models/User"
 
 Vue.use(Vuex)
 
@@ -11,8 +11,8 @@ export default new Vuex.Store({
                 55,
                 170,
                 70,
-                1,
-                "Ah Hok",
+                false,
+                "John Blyat",
                 new FoodProfile(
                     "Obese",
                     MNData.defaults(1904),
@@ -117,7 +117,11 @@ export default new Vuex.Store({
                 new MNData("Vitamin B Intake", "kcal", "", 0, 0),], "watermelon.jpg")
         ]
     },
-    mutations: {},
+    mutations: {
+        save (state, n) {
+            state.user[0] = n
+          },
+    },
     actions: {},
     getters: {
         getFood: state => {
