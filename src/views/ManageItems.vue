@@ -1,18 +1,9 @@
 <template>
     <div>
-        <br>
-        <ManageItemCard v-for="ic in userItemCard"
-                        :name="ic.title"
-                        :isEnabled="true"
-                        :mnData="ic"
-        >
-
-        </ManageItemCard>
-
-        <ManageItemCard v-for="ic in disabledItems"
-                        :name="ic.title"
-                        :isEnabled="false"
-                        :mnData="ic"
+        <ManageItemCard v-for="ic in allItemsTagged"
+                        :name="ic.data.title"
+                        :isEnabled="ic.disabled"
+                        :mnData="ic.data"
         >
 
         </ManageItemCard>
@@ -20,33 +11,40 @@
 </template>
 <script lang="ts">
     import {Component, Vue} from 'vue-property-decorator'
-    import {USERS} from '@/database/Database'
     import {MNData} from '@/models/User'
     import ManageItemCard from "@/components/ManageItemCard.vue"
+
+
+    class TaggedItems {
+        disabled: boolean
+        data: MNData
+
+        constructor(disabled: boolean, data: MNData) {
+            this.disabled = disabled
+            this.data = data
+        }
+    }
 
     @Component({
         components: {ManageItemCard}
     })
     export default class ManageItems extends Vue {
 
+        get USERS() {
+            return this.$store.state.user
+        }
+
         get userItemCard(): MNData[] {
-            return USERS[0].dietProfile.macros
+            return this.USERS[0].dietProfile.macros
+        }
+
+        get allItemsTagged(): TaggedItems[] {
+            const set = new Set(this.userItemCard.map((m: MNData) => m.title))
+            return this.allItems.map((m: MNData) => new TaggedItems(set.has(m.title), m))
         }
 
         get allItems(): MNData[] {
             return MNData.all()
-        }
-
-        get disabledItems(): MNData[] {
-            const set = new Set(this.userItemCard.map((m: MNData) => m.title))
-            const disabled: MNData[] = []
-            this.allItems.forEach((m: MNData) => {
-                if (!set.has(m.title)) {
-                    disabled.push(m)
-                }
-            })
-
-            return disabled
         }
     }
 </script>

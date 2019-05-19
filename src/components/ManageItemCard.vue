@@ -1,12 +1,15 @@
 <template>
     <div class="manage-item-card box">
         <p class="is-bold is-size-4 is-inline-block">{{name}}</p>
-        <i class="fas is-size-3 is-pulled-right cursor-ptr" :class="iconClass" @click="appendOrDecr()"></i>
+        <i class="fas is-size-3 is-pulled-right cursor-ptr"
+           :class="iconClass"
+           @click="appendOrDecr()">
+
+        </i>
     </div>
 </template>
 <script lang="ts">
     import {Component, Prop, Vue} from 'vue-property-decorator'
-    import {USERS} from '@/database/Database'
     import {MNData} from '@/models/User'
 
     @Component({})
@@ -27,17 +30,24 @@
         }
 
         appendOrDecr() {
-            if (this.isEnabled) {
-                const idx = USERS[0].dietProfile.macros.indexOf(this.mnData)
+            if (this.nonCachedEnabled) {
+                const idx = this.USERS[0].dietProfile.macros.indexOf(this.mnData)
                 if (idx > -1) {
-                    USERS[0].dietProfile.macros.splice(idx, 1)
+                    this.USERS[0].dietProfile.macros.splice(idx, 1)
                 }
-
-                this.nonCachedEnabled = !this.nonCachedEnabled
             } else {
-                USERS[0].dietProfile.macros.push(this.mnData)
-                this.nonCachedEnabled = !this.nonCachedEnabled
+                this.USERS[0].dietProfile.macros.push(this.mnData)
             }
+
+            this.toggleEnabled()
+        }
+
+        toggleEnabled() {
+            this.nonCachedEnabled = !this.nonCachedEnabled
+        }
+
+        get USERS() {
+            return this.$store.state.user
         }
 
         get iconClass() {
