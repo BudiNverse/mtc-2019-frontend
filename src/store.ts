@@ -24,7 +24,7 @@ export default new Vuex.Store({
             )
         ],
         food: [
-            new FoodProfile("Chicken Rice", [new MNData("Calorie Intake", "kcal", "is-success", 2000, 333),
+            new FoodProfile("Ayam King Chicken Rice", [new MNData("Calorie Intake", "kcal", "is-success", 2000, 333),
                 new MNData("Fats Intake", "g", "", 0, 24.2),
                 new MNData("Carbohydrate Intake", "kcal", "", 0, 70),
                 new MNData("Protein Intake", "kcal", "", 0, 22.2),
