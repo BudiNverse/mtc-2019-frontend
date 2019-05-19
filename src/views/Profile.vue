@@ -1,12 +1,10 @@
 <template>
-    <div class="profile">
-        <div class="columns">
-            <div class="column">
-                <p class="is-size-3 bolder">
-                    <i class="fas fa-arrow-left is-size-3" @click="goHome()"></i>
-                    &nbsp;General Settings
-                </p>
-            </div>
+  <div class="profile">
+    <div class="header title" @click="getquery">General Settings</div>
+    <div class="generalSettings">
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Age:</label>
         </div>
         <div class="field-body">
           <div class="field">
@@ -118,20 +116,27 @@
 import { Component, Vue } from "vue-property-decorator";
 import {User, MNData, FoodProfile} from "@/models/User.ts"
 
-    @Component({})
-    export default class Profile extends Vue {
-        goHome() {
-            this.$router.push("/")
-        }
+@Component({})
+export default class Profile extends Vue {
+    user: User = this.$store.state.user[0]
+    dietProfile: FoodProfile = this.user.dietProfile
+    getquery(){
+        console.log(this.$route.query.test)
     }
+    get currentPlan(){
+        return this.dietProfile.name
+    }
+
+  saveProfile(){
+    this.user.dietProfile = this.dietProfile
+    this.$store.commit('save', this.user)
+  }
+}
+
 </script>
 
 <style lang="scss" scoped>
-    .profile {
-        padding-top: 0.5em;
-    }
-
-    .bolder {
-        font-weight: bolder;
-    }
+.profile {
+  padding-top: 0.5em;
+}
 </style>
