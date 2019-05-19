@@ -1,6 +1,7 @@
 <template>
     <div class="home">
-        <NextMealCard></NextMealCard>
+        <navbar></navbar>
+        <NextMealCard class="animated fadeInDown"></NextMealCard>
         <br>
         <Macronutrients v-for="m in mn"
                         :key="m.title"
@@ -8,7 +9,9 @@
                         :unit="m.unit"
                         :curr="m.curr"
                         :target="m.target"
-                        :progressColor="m.progressColor">
+                        :progressColor="m.progressColor"
+                        class="animated fadeInDown"
+        >
         </Macronutrients>
         <div class="has-text-right">
             <router-link to="/manageItems">Manage items</router-link>
@@ -21,9 +24,11 @@
     import HelloWorld from '@/components/HelloWorld.vue'
     import NextMealCard from "@/components/NextMealCard.vue"
     import Macronutrients from "@/components/Macronutrients.vue"
+    import Navbar from "@/components/Navbar.vue"
 
     @Component({
         components: {
+            Navbar,
             Macronutrients,
             NextMealCard,
             HelloWorld,

@@ -5,19 +5,20 @@
                 <div class="column">
                     <i class="fas fa-hamburger is-size-3" @click="toggleMenuOpen"></i>
                 </div>
-                <!--                <div class="column">-->
-                <!--                    <img alt="logo" class="image is-3by1" src="../assets/logo.png">-->
-                <!--                </div>-->
             </div>
-            <div :class="menuShowing" class="mobile-menu">
-                <a v-for="l in links" class="is-size-2" @click="navigate(l.to)">
-                    <i class="fas" :class="l.iconClass"></i>
-                    {{l.str}}
-                </a>
-                <a class="is-size-2">
-                    <i class="fas fa-times" @click="toggleMenuOpen"></i>
-                </a>
-            </div>
+            <transition name="custom-classes-transition"
+                        enter-active-class="animated fadeInDown"
+                        leave-active-class="animated fadeOutUp">
+                <div v-if="menuOpen" class="mobile-menu">
+                    <a v-for="l in links" class="is-size-2" @click="navigate(l.to)">
+                        <i class="fas" :class="l.iconClass"></i>
+                        {{l.str}}
+                    </a>
+                    <a class="is-size-2">
+                        <i class="fas fa-times" @click="toggleMenuOpen"></i>
+                    </a>
+                </div>
+            </transition>
         </div>
     </div>
 </template>
@@ -57,10 +58,6 @@
             this.toggleMenuOpen()
             this.$router.push(navLink)
         }
-
-        get menuShowing() {
-            return this.menuOpen ? '' : 'is-hidden'
-        }
     }
 </script>
 
@@ -77,6 +74,7 @@
         background-color: #FFC0CB;
         padding-top: 50%;
         z-index: 2;
+
         a {
             display: block;
 

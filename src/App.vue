@@ -1,7 +1,10 @@
 <template>
     <div id="app">
-        <Navbar></Navbar>
-        <router-view/>
+        <transition name="custom-classes-transition"
+                    enter-active-class="animated fadeInRight"
+                    leave-active-class="animated fadeOutRight">
+            <router-view/>
+        </transition>
     </div>
 </template>
 
@@ -18,6 +21,7 @@
 
 <style lang="scss">
     @import url("~bulma/css/bulma.css");
+    @import url("~animate.css/animate.css");
 
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -25,6 +29,14 @@
         -moz-osx-font-smoothing: grayscale;
         color: #2c3e50;
         padding: 2em 1.5em;
+    }
+
+    .button {
+        transition: .5s;
+
+        &:active {
+            transform: scale(1.1);
+        }
     }
 
     #nav {

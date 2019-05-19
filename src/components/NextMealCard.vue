@@ -53,7 +53,7 @@
 
 <style lang="scss" scoped>
     .next-meal-card {
-        background-image: url("../assets/tintedsalad.png");
+        /*background-image: url("../assets/tintedsalad.png");*/
         background-size: cover;
         min-height: 30vh;
         font-weight: bolder;
@@ -62,4 +62,6 @@
     .buttons {
         padding-top: 3em;
     }
+
+
 </style>
