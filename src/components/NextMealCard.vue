@@ -44,8 +44,12 @@
         }
 
         eat() {
-            this.USERS[0].dietProfile.macros.forEach((mData: MNData, i: number) => {
-                mData.eat(this.nextFood[0].macros[i])
+            this.USERS[0].dietProfile.macros.forEach((mData: MNData) => {
+                this.nextFood[0].macros.forEach((mData2: MNData) => {
+                    if (mData2.title === mData.title) {
+                        mData.eat(mData2)
+                    }
+                })
             })
         }
     }

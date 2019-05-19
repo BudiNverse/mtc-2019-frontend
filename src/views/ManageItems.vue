@@ -35,7 +35,6 @@
         components: {ManageItemCard}
     })
     export default class ManageItems extends Vue {
-
         goHome() {
             this.$router.push("/")
         }

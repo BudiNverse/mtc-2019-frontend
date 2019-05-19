@@ -60,8 +60,8 @@ export class MNData {
             new MNData("Fat Intake", "g", "is-warning", 0.25 * calories),
             new MNData("Protein Intake", "g", "is-danger", 0.2 * calories),
             new MNData("Carbohydrate Intake", "g", "is-link", 0.55 * calories),
-            new MNData("Vitamin A Left", "mcg", "is-success", 750),
-            new MNData("Vitamin D Left", "mcg", "is-default", 2.5),
+            new MNData("Vitamin A Intake", "mcg", "is-success", 2000),
+            new MNData("Vitamin B Intake", "mcg", "is-default", 2000),
         ]
     }
 
