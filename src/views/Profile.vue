@@ -99,7 +99,7 @@
                     </div>
                 </div>
             </div>
-            <div class="field is-horizontal" v-for="m in dietProfile.macros" :key="m.title">
+            <div class="field is-horizontal final-input" v-for="m in dietProfile.macros" :key="m.title">
                 <div class="field-label is-normal">
                     <label class="label">{{m.title}}:</label>
                 </div>
@@ -115,7 +115,8 @@
                 </div>
             </div>
         </div>
-        <button class="button is-success" @click="saveProfile">Save</button>
+        <button class="button is-success save-button" @click="saveProfile">Save</button>
+        <button class="button is-success">Share Profile</button>
     </div>
 </template>
 
@@ -155,5 +156,13 @@
 
     .bolder {
         font-weight: bolder;
+    }
+    
+    .final-input {
+      margin-bottom: 10px;
+    }
+
+    .save-button {
+      margin-right: 10px;
     }
 </style>
