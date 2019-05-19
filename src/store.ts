@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {FoodProfile, MNData, User, DietProfile} from "@/models/User"
+import {FoodProfile, MNData, User} from "@/models/User"
 
 Vue.use(Vuex)
 
@@ -12,7 +12,7 @@ export default new Vuex.Store({
                 170,
                 70,
                 false,
-                "John Blyat",
+                "John Cena",
                 new FoodProfile(
                     "Obese",
                     MNData.defaults(1904),
