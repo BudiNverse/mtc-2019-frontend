@@ -30,7 +30,7 @@
                     </div>
                 </section>
                 <footer class="modal-card-foot">
-                    <button class="button is-success" @click="toggleModalOpen">Eat</button>
+                    <button class="button is-success" @click="eat">Eat</button>
                     <button class="button" @click="toggleModalOpen">Cancel</button>
                 </footer>
             </div>
@@ -40,7 +40,7 @@
 
 <script lang="ts">
     import {Component, Prop, Vue} from "vue-property-decorator"
-    import {FoodProfile} from "../models/User"
+    import {FoodProfile, MNData} from "../models/User"
 
     @Component({})
     export default class FoodCard extends Vue {
@@ -50,6 +50,21 @@
         openModal = false
 
         created() {
+        }
+
+        eat() {
+            this.USERS[0].dietProfile.macros.forEach((mData: MNData) => {
+                this.profile.macros.forEach((mData2: MNData) => {
+                    if (mData2.title === mData.title) {
+                        mData.eat(mData2)
+                    }
+                })
+            })
+            this.$router.push("/")
+        }
+
+        get USERS() {
+            return this.$store.state.user
         }
 
         toggleModalOpen() {

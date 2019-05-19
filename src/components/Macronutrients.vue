@@ -2,7 +2,7 @@
     <div class="box">
         <p class="is-size-4">{{title}}</p>
         <progress class="progress" :class="progressColor" :value="curr" :max="target"></progress>
-        <p class="is-size-5 is-right"><strong class="is-bold">{{curr}}</strong>/{{target}}
+        <p class="is-size-5 is-right"><strong class="is-bold">{{curr.toFixed(2)}}</strong>/{{target.toFixed(2)}}
             {{unit}}</p>
     </div>
 </template>

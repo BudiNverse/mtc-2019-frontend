@@ -12,10 +12,10 @@ export default new Vuex.Store({
                 170,
                 70,
                 false,
-                "John Cena",
+                "Ahmad Syafiq",
                 new FoodProfile(
                     "Obese",
-                    MNData.defaults(1904),
+                    MNData.defaults(2000),
                     ""
                 ),
                 1904,
@@ -26,7 +26,7 @@ export default new Vuex.Store({
         food: [
             new FoodProfile("Chicken Rice", [new MNData("Calorie Intake", "kcal", "is-success", 2000, 333),
                 new MNData("Fats Intake", "g", "", 0, 24.2),
-                new MNData("Carbohydrate Intake", "kcal", "", 0, .70),
+                new MNData("Carbohydrate Intake", "kcal", "", 0, 70),
                 new MNData("Protein Intake", "kcal", "", 0, 22.2),
                 new MNData("Iron Intake", "kcal", "", 0, 0),
                 new MNData("Vitamin A Intake", "kcal", "", 0, 3),
@@ -40,7 +40,7 @@ export default new Vuex.Store({
                 new MNData("Vitamin B Intake", "kcal", "", 0, 0),], "Mixed-vegetable-rice.jpg"),
             new FoodProfile("Chocolate Cake", [new MNData("Calorie Intake", "kcal", "is-success", 2000, 389),
                 new MNData("Fats Intake", "g", "", 0, 29),
-                new MNData("Carbohydrate Intake", "kcal", "", 0, 53),
+                new MNData("Carbohydrate Intake", "kcal", "", 0, 212),
                 new MNData("Protein Intake", "kcal", "", 0, 3.5),
                 new MNData("Iron Intake", "kcal", "", 0, 35),
                 new MNData("Vitamin A Intake", "kcal", "", 0, 0),
